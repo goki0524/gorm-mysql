@@ -1,1 +1,1 @@
-package controllers_test
+package controller_test

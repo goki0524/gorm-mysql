@@ -1,20 +1,20 @@
-package controllers
+package controller
 
 import (
 	"log"
 	"net/http"
 
 	"github.com/goki0524/gorm-mysql/app/params"
-	"github.com/goki0524/gorm-mysql/app/services"
-	"github.com/goki0524/gorm-mysql/app/validators"
-	"github.com/goki0524/gorm-mysql/helpers/utils"
+	"github.com/goki0524/gorm-mysql/app/service"
+	"github.com/goki0524/gorm-mysql/app/validator"
+	"github.com/goki0524/gorm-mysql/helper/utils"
 	"github.com/gorilla/mux"
 )
 
 type UserController struct {
 	controller
-	userService   services.UserService
-	userValidator validators.UserValidator
+	userService   service.UserService
+	userValidator validator.UserValidator
 }
 
 func (c *UserController) GetUser(w http.ResponseWriter, r *http.Request) {

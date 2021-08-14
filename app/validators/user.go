@@ -1,4 +1,4 @@
-package validators
+package validator
 
 import (
 	"github.com/goki0524/gorm-mysql/app/params"

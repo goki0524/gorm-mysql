@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/goki0524/gorm-mysql/helpers/utils"
+	"github.com/goki0524/gorm-mysql/helper/utils"
 )
 
 func InitTest() {

@@ -1,42 +1,35 @@
-package services
+package service
 
 import (
-	"fmt"
-
-	"github.com/goki0524/gorm-mysql/app/models"
 	"github.com/goki0524/gorm-mysql/app/params"
+	"github.com/goki0524/gorm-mysql/app/repository/mysql"
 )
 
 type UserService struct {
-	service
+	mysqlUserRepository mysql.MysqlUserRepository
 }
 
 func (s *UserService) GetUser(req *params.GetUserReq) *params.GetUserRes {
 
-	db := s.mysql.Connection()
-
-	var user models.User
-
-	db.First(&user, req.UserID)
-	fmt.Println(user)
+	user := s.mysqlUserRepository.GetByID(req.UserID)
 
 	var res params.GetUserRes
-	res.User = &user
+	res.User = user
 
 	return &res
 }
 
-func (s *UserService) GetUsers() *params.GetUsersRes {
+// func (s *UserService) GetUsers() *params.GetUsersRes {
 
-	db := s.mysql.Connection()
+// 	db := s.mysql.Connection()
 
-	var users []models.User
+// 	var users []entity.User
 
-	db.Where("is_valid = ?", true).Find(&users)
-	fmt.Println(users)
+// 	db.Where("is_valid = ?", true).Find(&users)
+// 	fmt.Println(users)
 
-	var res params.GetUsersRes
-	res.Users = &users
+// 	var res params.GetUsersRes
+// 	res.Users = &users
 
-	return &res
-}
+// 	return &res
+// }

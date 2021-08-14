@@ -1,11 +1,11 @@
-package services_test
+package service_test
 
 import (
 	"testing"
 	"time"
 
 	"github.com/goki0524/gorm-mysql/app/params"
-	"github.com/goki0524/gorm-mysql/app/services"
+	"github.com/goki0524/gorm-mysql/app/service"
 	"github.com/goki0524/gorm-mysql/test"
 	"github.com/stretchr/testify/assert"
 )
@@ -17,7 +17,7 @@ func init() {
 // TestGetUserSuccess :	ユーザー取得に成功
 func TestGetUserSuccess(t *testing.T) {
 
-	us := services.UserService{}
+	us := service.UserService{}
 
 	userID := int64(1)
 	user := *us.GetUser(&params.GetUserReq{
@@ -30,7 +30,7 @@ func TestGetUserSuccess(t *testing.T) {
 // TestGetUserFailure :	ユーザー取得に失敗
 func TestGetUserFailure(t *testing.T) {
 
-	us := services.UserService{}
+	us := service.UserService{}
 
 	userID := int64(time.Now().Unix())
 	user := *us.GetUser(&params.GetUserReq{
@@ -43,7 +43,7 @@ func TestGetUserFailure(t *testing.T) {
 // TestGetUsersSuccess : 全ユーザーの取得に成功
 func TestGetUsersSuccess(t *testing.T) {
 
-	us := services.UserService{}
+	us := service.UserService{}
 
 	res := *us.GetUsers()
 

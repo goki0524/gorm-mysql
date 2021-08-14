@@ -1,7 +1,7 @@
 package params
 
 import (
-	"github.com/goki0524/gorm-mysql/app/models"
+	"github.com/goki0524/gorm-mysql/app/entity"
 )
 
 /* Follow the rules below for validation files. */
@@ -21,7 +21,7 @@ type GetUserReq struct {
 }
 
 type GetUserRes struct {
-	User *models.User
+	User *entity.User
 }
 
 // GetUsers
@@ -29,5 +29,5 @@ type GetUsersReq struct {
 }
 
 type GetUsersRes struct {
-	Users *[]models.User
+	Users *[]entity.User
 }
